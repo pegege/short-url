@@ -10,7 +10,7 @@ function App() {
   // Esta función se ejecuta cuando haces clic en el botón
   const handleShorten = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/urls', {
+      const response = await fetch('https://short-url-app-67tv.onrender.com/api/urls', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ function App() {
       })
 
       const data = await response.json() // Esperamos la respuesta
-      setShortUrl(`http://localhost:3000/api/urls/${data.shortUrl}`) // Guardamos la URL acortada
+      setShortUrl(`https://short-url-app-67tv.onrender.com/api/urls${data.shortUrl}`) // Guardamos la URL acortada
     } catch (error) {
       console.error('Error al acortar la URL:', error)
     }
