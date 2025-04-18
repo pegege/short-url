@@ -19,7 +19,7 @@ function App() {
       })
 
       const data = await response.json() // Esperamos la respuesta
-      setShortUrl(`https://short-url-app-67tv.onrender.com/api/urls${data.shortUrl}`) // Guardamos la URL acortada
+      setShortUrl(`https://short-url-app-67tv.onrender.com/${data.shortUrl}`)
     } catch (error) {
       console.error('Error al acortar la URL:', error)
     }
