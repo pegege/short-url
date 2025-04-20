@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Historial from './components/Historial'
-import Estadisticas from './components/Estadisticas'
+import Historial from './components/historial.jsx'
+import Estadisticas from './components/estadisticas.jsx'
 import { FiCopy } from 'react-icons/fi'
 
 
