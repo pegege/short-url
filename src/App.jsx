@@ -23,7 +23,11 @@ function App() {
       })
 
       const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.message || 'Error al acortar la URL')
+      }
       const nuevaUrl = `https://short-url-app-67tv.onrender.com/${data.shortUrl}`
+
       setShortUrl(nuevaUrl)
       setHistory((prev) => [...prev, nuevaUrl])
       setOriginalUrl('')
