@@ -11,6 +11,7 @@ function App() {
   const [copied, setCopied] = useState(false)
   const [history, setHistory] = useState([])
   const [stats, setStats] = useState(null)
+  const [error, setError] = useState(null)
 
   const handleShorten = async () => {
     try {
@@ -23,9 +24,12 @@ function App() {
       })
 
       const data = await response.json()
+      
       if (!response.ok) {
-        throw new Error(data.message || 'Error al acortar la URL')
+        setError(data.message || 'Error al acortar la URL')
+        return
       }
+      
       const nuevaUrl = `https://short-url-app-67tv.onrender.com/${data.shortUrl}`
 
       setShortUrl(nuevaUrl)
@@ -56,6 +60,13 @@ function App() {
         >
           Acortar
         </button>
+
+        {error && (
+          <div className="mt-4 text-red-600 text-center font-medium">
+            {error}
+          </div>
+        )}
+
 
         {shortUrl && (
           <div className="mt-6 text-center">
@@ -94,12 +105,15 @@ function App() {
               {copied ? 'Copiado!' : 'Copiar URL'}
             </button>
 
+            
 
             {copied && (
               <div className="mt-2 text-green-600 text-sm">
                 URL copiada al portapapeles!
               </div>
             )}
+
+
           </div>
         )}
 
