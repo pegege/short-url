@@ -50,7 +50,10 @@ function App() {
           type="text"
           placeholder="Introduce una URL larga"
           value={originalUrl}
-          onChange={(e) => setOriginalUrl(e.target.value)}
+          onChange={(e) => {
+            setOriginalUrl(e.target.value)
+            setError(null) 
+          }}
           className="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
